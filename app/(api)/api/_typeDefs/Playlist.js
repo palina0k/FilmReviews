@@ -4,23 +4,37 @@ const typeDefs = gql`
   type Playlist {
     id: ID!
     name: String!
-    user: User
-    userId: ID
-    songs: [Song]
+    description: String
+    movies: [Movie]
+    creator: User!
+    isPrivate: Boolean!
+    createdAt: String!
+    updatedAt: String
   }
 
-  input PlaylistInput {
+  input createPlaylistInput {
     name: String!
+    description: String
+    movieIds: [ID!]!
+    isPrivate: Boolean!
+  }
+
+  input UpdatePlaylistInput {
+    name: String
+    description: String
+    movieIds: [ID!]
+    isPrivate: Boolean
   }
 
   type Query {
     playlist(id: ID!): Playlist
-    playlists: [Playlist]
+    playlistsByUser(userId: ID!): [Playlist]
   }
 
   type Mutation {
-    createPlaylist(userId: ID!, input: PlaylistInput!): Playlist
-    addSong(playlistId: ID!, songId: ID!): Boolean
+    createPlaylist(userId: ID!, input: CreatePlaylistInput!): Playlist
+    updatePlaylist(userId: ID!, input: UpdatePlaylistInput!): Playlist
+    addSong(playlistId: ID!): Boolean
   }
 `;
 export default typeDefs;

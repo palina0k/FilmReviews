@@ -3,12 +3,26 @@ import gql from 'graphql-tag';
 const typeDefs = gql`
   type User {
     id: ID!
-    name: String!
+    username: String!
+    email: String!
+    password: String!
+    reviews: [Review]
     playlists: [Playlist]
+    likedReviews: [Review]
+    createdAt: String!
+    updatedAt: String
   }
 
-  input UserInput {
-    name: String!
+  input CreateUserInput {
+    username: String!
+    email: String!
+    password: String!
+  }
+
+  input UpdateUserInput {
+    username: String
+    email: String
+    password: String
   }
 
   type Query {
@@ -17,8 +31,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(input: UserInput!): User
-    updateUser(id: ID!, input: UserInput!): User
+    createUser(input: CreateUserInput!): User
+    updateUser(id: ID!, input: UpdateUserInput!): User
     deleteUser(id: ID!): Boolean
   }
 `;

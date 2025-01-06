@@ -1,0 +1,7 @@
+model MovieToGenre{
+  id               String           @id @default(uuid())
+  movie            Movie            @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId          String
+  genre            Genre            @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  genreId          String
+}

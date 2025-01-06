@@ -1,10 +1,11 @@
-model Playlist{
+model Review {
   id          String         @id @default(uuid())
-  name        String
   user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
-  movies      PlaylistToMovie[]
-  isPublic    Boolean        @default(false)
+  movie       Movie          @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId     String
+  rating      Int
+  genres      ReviewToGenre[]
+  content     String?
   createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
 }

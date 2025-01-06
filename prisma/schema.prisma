@@ -7,39 +7,79 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Playlist {
-  id        String           @id @default(uuid())
-  name      String
-  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String
-  songs     PlaylistToSong[]
-  createdAt DateTime         @default(now())
-  updatedAt DateTime         @updatedAt
+model PlaylistToMovie {
+  id              String          @id @default(uuid())
+  playlist        Playlist        @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  playlistId      String
+  movie           Movie           @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId         String
 }
 
-model PlaylistToSong {
-  playlistId String
-  playlist   Playlist @relation(fields: [playlistId], references: [id], onDelete: Cascade)
-  songId     String
-  song       Song     @relation(fields: [songId], references: [id], onDelete: Cascade)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@id(name: "id", fields: [playlistId, songId])
+model ReviewToGenre {
+  id               String           @id @default(uuid())
+  review           Review           @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewId         String
+  genre            Genre            @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  genreId          String
 }
 
-model Song {
-  id        String           @id @default(uuid())
-  name      String
-  playlists PlaylistToSong[]
-  createdAt DateTime         @default(now())
-  updatedAt DateTime         @updatedAt
+model MovieToGenre{
+  id               String           @id @default(uuid())
+  movie            Movie            @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId          String
+  genre            Genre            @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  genreId          String
+}
+
+model Playlist{
+  id          String         @id @default(uuid())
+  name        String
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  movies      PlaylistToMovie[]
+  isPublic    Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model Genre{
+  id          String         @id @default(uuid())
+  name        String         @unique
+  movies      MovieToGenre[]
+  reviews     ReviewToGenre[]
+}
+
+model Review {
+  id          String         @id @default(uuid())
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  movie       Movie          @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId     String
+  rating      Int
+  genres      ReviewToGenre[]
+  content     String?
+  createdAt   DateTime       @default(now())
+}
+
+model Movie {
+  id          String         @id @default(uuid())
+  title       String
+  description String?
+  releaseDate DateTime?
+  reviews     Review[]
+  genres      MovieToGenre[]
+  playlists   PlaylistToMovie[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 }
 
 model User {
-  id        String     @id @default(uuid())
-  name      String
-  playlists Playlist[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id          String         @id @default(uuid())
+  username    String         @unique
+  email       String         @unique
+  password    String
+  reviews     Review[]       
+  playlists   Playlist[]     
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 }

@@ -5,24 +5,23 @@ const typeDefs = gql`
     id: ID!
     title: String!
     description: String
-    releaseDate: String!
-    genres: [Genre!]
-    reviews: [Review]
-    rating: Float
+    releaseDate: String
+    reviews: [Review!]!
+    genres: [Genre!]!
+    createdAt: String!
+    updatedAt: String!
   }
 
   input CreateMovieInput {
     title: String!
     description: String
-    releaseDate: String!
-    genres: [String!]
+    releaseDate: String
   }
 
   input UpdateMovieInput {
     title: String
     description: String
     releaseDate: String
-    genres: [String!]
   }
 
   type Query {
@@ -31,9 +30,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(input: CreateMovieInput!): Movie
+    createMovie(input: CreateMovieInput!): Movie
     updateMovie(id: ID!, input: UpdateMovieInput!): Movie
-    deleteUser(id: ID!): Boolean
+    deleteMovie(id: ID!): Boolean
   }
 `;
 export default typeDefs;

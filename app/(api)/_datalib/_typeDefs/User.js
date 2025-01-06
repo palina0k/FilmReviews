@@ -6,11 +6,10 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    reviews: [Review]
-    playlists: [Playlist]
-    likedReviews: [Review]
+    reviews: [Review!]!
+    playlists: [Playlist!]!
     createdAt: String!
-    updatedAt: String
+    updatedAt: String!
   }
 
   input CreateUserInput {

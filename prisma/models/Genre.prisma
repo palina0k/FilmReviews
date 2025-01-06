@@ -1,0 +1,6 @@
+model Genre{
+  id          String         @id @default(uuid())
+  name        String         @unique
+  movies      MovieToGenre[]
+  reviews     ReviewToGenre[]
+}

@@ -1,0 +1,7 @@
+model PlaylistToMovie {
+  id              String          @id @default(uuid())
+  playlist        Playlist        @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  playlistId      String
+  movie           Movie           @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  movieId         String
+}

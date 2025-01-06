@@ -1,0 +1,7 @@
+model ReviewToGenre {
+  id               String           @id @default(uuid())
+  review           Review           @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewId         String
+  genre            Genre            @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  genreId          String
+}

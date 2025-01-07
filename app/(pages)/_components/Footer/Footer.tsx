@@ -11,15 +11,17 @@ export default function Footer({ navLinks }: { navLinks: NavLink[] }) {
     <div className={styles.container}>
       <div className={styles.content_container}>
         <div className={styles.description}>
-          <h2>Platform Team Demo</h2>
+          <h2>Seanema World</h2>
           <p>
-            This footer was designed so that you can practice writing efficient
-            HTML/CSS while getting familiar with our codebase.
+          Inspired by the world of cinematogrpahy, 
+          this website is a great way to share your thoughts and reactions to films.
+          As a beginner project, this was a learning opportunity to build an interactive application
+          using existing sites, such as IMDb and Letterboxd, as our model.
           </p>
         </div>
         <div className={styles.navigation}>
           <div className={styles.learn_more}>
-            <h2>Learn more</h2>
+            <h2>Site Links</h2>
             <div className={styles.learn_more_links}>
               {navLinks.map((link) => {
                 return (
@@ -31,7 +33,7 @@ export default function Footer({ navLinks }: { navLinks: NavLink[] }) {
             </div>
           </div>
           <div className={styles.projects}>
-            <h2>Projects</h2>
+            <h2>Learn More</h2>
             <div className={styles.project_link_columns}>
               <div>
                 {/* Should be done with a loop */}
@@ -39,17 +41,12 @@ export default function Footer({ navLinks }: { navLinks: NavLink[] }) {
                 <Link href="/project/2">Project 2</Link>
                 <Link href="/project/3">Project 3</Link>
               </div>
-              <div>
-                <Link href="/project/4">Project 4</Link>
-                <Link href="/project/5">Project 5</Link>
-                <Link href="/project/6">Project 6</Link>
-              </div>
             </div>
           </div>
         </div>
       </div>
       <p className={styles.credit}>
-        Designed & develped with 🤍 by #include at Davis @2023
+        Designed & developed with 🤍 by Palina Karzhenka and #include at Davis @2025
       </p>
     </div>
   );

@@ -4,15 +4,11 @@
       "slug": "/"
     },
     {
-      "name": "About Us",
+      "name": "Search",
+      "slug": "/search"
+    },
+    {
+      "name": "About",
       "slug": "/about"
-    },
-    {
-      "name": "Examples",
-      "slug": "/examples"
-    },
-    {
-      "name": "Contact Us",
-      "slug": "/contact"
     }
   ]

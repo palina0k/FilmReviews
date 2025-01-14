@@ -1,6 +1,6 @@
 import styles from './Home.module.scss';
 
-export default function Hero() {
+export default function Landing() {
     return(
         <div className={styles.container}>
             <main className={styles.main}>

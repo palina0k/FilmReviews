@@ -5,8 +5,14 @@ import styles from './Profile.module.scss';
 import LoginPopup from './_components/LoginPopup';
 import PlaylistSection from './_components/PlaylistSection';
 
+interface User {
+  id: string;
+  username: string;
+  email: string;
+}
+
 export default function ProfilePage() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
@@ -19,7 +25,7 @@ export default function ProfilePage() {
     }
   }, []);
 
-  const handleLoginSuccess = (userData) => {
+  const handleLoginSuccess = (userData: User) => {
     localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
     setShowLogin(false);

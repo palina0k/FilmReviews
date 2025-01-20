@@ -8,6 +8,7 @@ const resolvers = {
      Query: {
         movie: (_, { id }) => Movies.find({ id }),
         movies: (_, { ids }) => Movies.findMany({ ids }),
+        searchMovies: (_, { search }) => Movies.search({ search }),
      },
      Mutation: {
         createMovie: (_, { input }) => Movies.create({ input }),

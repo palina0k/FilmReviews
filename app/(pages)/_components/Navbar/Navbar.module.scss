@@ -1,6 +1,6 @@
 @use 'app/(pages)/_globals/mixins';
 
-$scale: 1.04;
+$scale: 1.07;
 
 .relative_wrapper {
     position: relative;
@@ -13,7 +13,7 @@ $scale: 1.04;
     z-index: 10;
     width: 100%;
     height: var(--navbar-height);
-    padding: 0 var(--medium-spacer);
+    padding: 0 var(--small-spacer);
     
     display: flex;
     flex-direction: row;
@@ -27,6 +27,17 @@ $scale: 1.04;
     }
 }
 
+.logo_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--small-spacer);
+
+    >h2 {
+        color: var(--text-light);
+        text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.7);
+    }
+}
 .nav_container {
     display: flex;
     flex-direction: row;
@@ -39,6 +50,7 @@ $scale: 1.04;
         flex-direction: row;
         gap: var(--spacer);
         color: var(--text-light);
+        font-size: 2rem;
 
         >* {
             padding: var(--tiny-spacer);
@@ -50,8 +62,10 @@ $scale: 1.04;
 
         >*:hover {
             transform: scale($scale);
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.7);
             @include mixins.tablet {
                 transform: none;
+                border-top: solid 2px var(--primary);
                 border-bottom: solid 2px var(--primary);
             }
         }

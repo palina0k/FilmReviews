@@ -8,6 +8,10 @@
       "slug": "/search"
     },
     {
+      "name": "Profile",
+      "slug": "/profile"
+    },
+    {
       "name": "About",
       "slug": "/about"
     }

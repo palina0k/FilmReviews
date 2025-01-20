@@ -23,6 +23,9 @@ export default class Playlists {
             where: {
                 id,
             },
+            include: {
+                movies: true,
+            },
         });
     }
 
@@ -30,6 +33,9 @@ export default class Playlists {
         return prisma.playlist.findMany({
             where: {
                 userId,
+            },
+            include: {
+                movies: true,
             },
         });
     }
@@ -44,7 +50,11 @@ export default class Playlists {
             data: {
                 name,
                 isPublic,
-                movies: movieIds ? {connect: movieIds.map((id) => ({ id })) } : undefined,
+                movies: movieIds
+                 ? {
+                    connect: movieIds.map((id) => ({ id })),
+                }
+                : undefined,
             },
         });
         return playlist;
@@ -66,16 +76,26 @@ export default class Playlists {
 
     //OTHER
     static async addMovie({ playlistId, movieId }) {
-        const addedMovie = await prisma.playlist.update({
-            where: {
-                id: playlistId
-            },
+        const addedMovie = await prisma.playlistToMovie.create({
             data: {
-                movies: {connect: {id: movieId} }
+                playlistId,
+                movieId,
+            }
+        });
+        const updatedPlaylist = await prisma.playlist.findUnique({
+            where: { id: playlistId },
+            include: {
+                movies: {
+                    include: {
+                        movie: true
+                    }
+                }
             },
         });
-        return addedMovie;
+    
+        return updatedPlaylist;
     }
+
 
     static async getUser({ userId }) {
         return prisma.user.findUnique({
@@ -86,13 +106,23 @@ export default class Playlists {
     }
 
     static async getMovies({ id }) {
-        return prisma.movie.findMany({
-            where: {
-                playlists: {
-                    some: {
-                        id,
+        const playlistWithMovies = await prisma.playlist.findUnique({
+            where: { id },
+            include: {
+                movies: {
+                    include: {
+                        movie: true,
                     },
                 },
+            },
+        });
+        return playlistWithMovies.movies.map((playlistToMovie) => playlistToMovie.movie);
+    }
+
+    static async search({ search }) {
+        return prisma.playlist.findMany({
+            where: {
+                name: { contains: search, mode: 'insensitive' },
             },
         });
     }

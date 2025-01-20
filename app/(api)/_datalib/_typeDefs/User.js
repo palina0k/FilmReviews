@@ -5,7 +5,6 @@ const typeDefs = gql`
     id: ID!
     username: String!
     email: String!
-    password: String!
     reviews: [Review!]!
     playlists: [Playlist!]!
     createdAt: String!
@@ -27,12 +26,14 @@ const typeDefs = gql`
   type Query {
     user(id: ID!): User
     users(ids: [ID]!): [User]
+    findUserByEmail(email: String!): User
   }
 
   type Mutation {
     createUser(input: CreateUserInput!): User
     updateUser(id: ID!, input: UpdateUserInput!): User
     deleteUser(id: ID!): Boolean
+    loginUser(email: String!, password: String!): User
   }
 `;
 export default typeDefs;

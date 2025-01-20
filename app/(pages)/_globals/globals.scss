@@ -2,15 +2,14 @@
 
 :root {
     /* variables */
-    --include-purple: #3c257e;
+    --primary: #6f1d1b;
+    --secondary: #ffe6a7;
+    --light-background: #bb9457;
+    --dark-background: #432818;
+    --darker-background: #0a0101;
 
-    --primary: var(--include-purple);
-    --secondary: #e7c6f9;
-    --light-background: rgb(241, 240, 240);
-    --dark-background: #0d303b;
-
-    --text-dark: #0d303b;
-    --text-light: #def6ff;
+    --text-dark: #432818;
+    --text-light: #ffe6a7;
 
     /* spacers */
     --tiny-spacer: 8px;
@@ -25,14 +24,14 @@
     /* navbar */
     --navbar-height: 80px;
 
-    background-color: var(--light-background);
+    background-color: var(--darker-background);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: var(--font-inter);
+  font-family: var(--font-limelight);
   color: var(--text-dark);
 }
 
@@ -42,17 +41,17 @@ a {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 h4 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 p {
-    font-size: 1rem;
+    font-size: 1.5rem;
 }

@@ -3,14 +3,13 @@ import prisma from '../_prisma/client.js';
 export default class Reviews {
     //CREATE
     static async create({ input }) {
-        const { userId, movieId, content, rating, genres } = input;
+        const { userId, movieId, content, rating } = input;
         const review = await prisma.review.create({
             data: {
                 userId,
                 movieId,
                 content,
                 rating,
-                genres:{ connect: genres.map((id) => ({ id })) },
             },
         });
         return review;

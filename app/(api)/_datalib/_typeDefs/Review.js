@@ -16,7 +16,6 @@ const typeDefs = gql`
     movieId: ID!
     content: String
     rating: Int!
-    genres: [ID!]!
   }
 
   type Query {

@@ -24,16 +24,22 @@ const typeDefs = gql`
     isPublic: Boolean
   }
 
+  input AddMovieToPlaylistInput {
+    movie: CreateMovieInput!
+    review: CreateReviewInput!
+  }
+
   type Query {
     playlist(id: ID!): Playlist
     playlistsByUser(userId: ID!): [Playlist]
+    searchPlaylists(search: String!): [Playlist!]!
   }
 
   type Mutation {
-    createPlaylist(id: ID!, input: CreatePlaylistInput!): Playlist
+    createPlaylist( input: CreatePlaylistInput!): Playlist
     updatePlaylist(id: ID!, input: UpdatePlaylistInput!): Playlist
-    deletePlaylist(is: ID!): Boolean
-    addMovieToPlaylist(playlistId: ID!, movieId: ID!): Playlist
+    deletePlaylist(id: ID!): Boolean
+    addMovieToPlaylist(playlistId: String!, movieId: String!): Playlist
   }
 `;
 export default typeDefs;

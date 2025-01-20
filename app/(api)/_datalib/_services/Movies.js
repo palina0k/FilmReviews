@@ -3,7 +3,7 @@ import prisma from '../_prisma/client.js';
 export default class Movies {
     //CREATE 
     static async create({ input }) {
-        const { title, description, releaseDate, poster } = input;
+        const { title, description, releaseDate } = input;
         const movie = await prisma.movie.create({
             data: {
                 title,
@@ -79,6 +79,17 @@ export default class Movies {
                         id,
                     },
                 },
+            },
+        });
+    }
+
+    static async search({ search }) {
+        return prisma.movie.findMany({
+            where: {
+                OR: [
+                    { title: {contains: search, mode: 'insensitive' } },
+                    { description: { contains: search, mode: 'insensitive' } },
+                ],
             },
         });
     }

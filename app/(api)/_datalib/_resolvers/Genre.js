@@ -3,7 +3,7 @@ import Genres from '../_services/Genres.js';
 const resolvers = {
     Genre: {
         movies: ({ id }) => Genres.getMovies({ id }),
-        reviews: ({ id }) => Genre.getReviews({ id }),
+        reviews: ({ id }) => Genres.getReviews({ id }),
     },
     Query: {
         genre: (_, { id } ) => Genres.find({ id }),

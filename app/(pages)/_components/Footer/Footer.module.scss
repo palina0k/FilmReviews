@@ -12,6 +12,7 @@
         width: 100%;
         padding: var(--tiny-spacer);
         text-align: center;
+        font-family: var(--font-oswald);
         background-color: var(--primary);
         color: var(--text-light);
         @include mixins.phone {

@@ -1,18 +1,20 @@
 import prisma from '../_prisma/client.js';
+import bcrypt from 'bcrypt';
 
 export default class Users {
     //CREATE
     static async create({ input }) {
         const { username, email, password } = input;
+        const hashedPassword = await bcrypt.hash(password, 10);
         const user = await prisma.user.create({
-            data: {
-                username,
-                email,
-                password,
-            },
+          data: {
+            username,
+            email,
+            password: hashedPassword,
+          },
         });
         return user;
-    }
+      }
 
     //READ
     static async find({ id }) {
@@ -30,6 +32,12 @@ export default class Users {
                     in: ids,
                 },
             },
+        });
+    }
+
+    static async findByEmail({ email }) {
+        return prisma.user.findUnique({
+          where: { email },
         });
     }
 

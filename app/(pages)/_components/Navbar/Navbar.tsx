@@ -5,6 +5,8 @@ import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx';
 import styles from './Navbar.module.scss';
 import useToggle from '@hooks/useToggle';
 
+import Image from 'next/image';
+
 interface NavLink {
   name: string;
   slug: string;
@@ -19,7 +21,10 @@ export default function Navbar({ navLinks }: { navLinks: NavLink[] }) {
   return (
     <div className={styles.relative_wrapper}>
       <div className={styles.container}>
-        <h2>LOGO IMG</h2>
+        <div className={styles.logo_container}>
+          <Image src="/index/Logo_v1_transparent.png" alt="Cinemad World Logo" width={80} height={80} />
+          <h2>Cinema World </h2>
+        </div>
         <div className={styles.nav_container}>
           <div className={`${styles.links} ${active ? styles.active : null}`}>
             {navLinks.map((link) => {

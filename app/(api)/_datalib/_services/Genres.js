@@ -4,7 +4,7 @@ export default class Genres {
     //CREATE
     static async create({ input }) {
         const { name } = input;
-        const genre = await prisma.genre. create({
+        const genre = await prisma.genre.create({
             data: {
                 name,
             },

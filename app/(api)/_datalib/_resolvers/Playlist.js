@@ -8,6 +8,7 @@ const resolvers = {
     Query: {
       playlist: (_, { id }) => Playlists.find({ id }),
       playlistsByUser: (_, { userId }) => Playlists.findMany({ userId }),
+      searchPlaylists: (_, { search }) => Playlists.search({ search }),
     },
     Mutation: {
       createPlaylist: (_, { input }) => Playlists.create({ input }),

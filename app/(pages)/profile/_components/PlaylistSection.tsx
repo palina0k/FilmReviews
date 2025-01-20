@@ -67,7 +67,7 @@ const ADD_MOVIE_TO_PLAYLIST_MUTATION = gql`
 export default function PlaylistSection({ userId }: { userId: string }) {
     const [playlists, setPlaylists] = useState<Playlist[]>([]);
     const [newPlaylist, setNewPlaylist] = useState({ name: '', isPublic: true });
-    const [selectedPlaylist, setSelectedPlaylist] = useState(null);
+    const [selectedPlaylist, setSelectedPlaylist] = useState<Playlist | null>(null);
     const [newMovie, setNewMovie] = useState({ title: '', description: '', releaseDate: ''});
     const [isAddingPlaylist, setIsAddingPlaylist] = useState(false);
     const [isViewingPlaylist, setIsViewingPlaylist] = useState(false);

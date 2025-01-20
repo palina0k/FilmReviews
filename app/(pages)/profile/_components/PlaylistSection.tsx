@@ -111,7 +111,7 @@ export default function PlaylistSection({ userId }: { userId: string }) {
             if (updatedPlaylistData?.addMovieToPlaylist) {
                 const { data } = await sendApolloRequest(GET_USER_PLAYLISTS, { userId });
                 setPlaylists(data.playlistsByUser || []);
-                setSelectedPlaylist(data.playlistsByUser.find(p => p.id === playlistId));
+                setSelectedPlaylist(data.playlistsByUser.find((p: Playlist) => p.id === playlistId));
             }
             setNewMovie({ title: '', description: '', releaseDate: '' })
         } catch (error) {

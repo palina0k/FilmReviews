@@ -5,6 +5,13 @@ import { gql } from 'graphql-tag';
 import sendApolloRequest from '@utils/sendApolloRequest';
 import styles from './PlaylistSection.module.scss';
 
+interface Playlist {
+    id: string;
+    name: string;
+    userId: string;
+    isPublic: boolean;
+}
+
 const GET_USER_PLAYLISTS = gql`
     query GetUserPlaylists($userId: ID!) {
         playlistsByUser(userId: $userId){
@@ -58,7 +65,7 @@ const ADD_MOVIE_TO_PLAYLIST_MUTATION = gql`
 
 
 export default function PlaylistSection({ userId }: { userId: string }) {
-    const [playlists, setPlaylists] = useState([]);
+    const [playlists, setPlaylists] = useState<Playlist[]>([]);
     const [newPlaylist, setNewPlaylist] = useState({ name: '', isPublic: true });
     const [selectedPlaylist, setSelectedPlaylist] = useState(null);
     const [newMovie, setNewMovie] = useState({ title: '', description: '', releaseDate: ''});
@@ -85,7 +92,7 @@ export default function PlaylistSection({ userId }: { userId: string }) {
         try{
             const { data } = await sendApolloRequest(CREATE_PLAYLIST_MUTATION, { input: { ...newPlaylist, userId, isPublic: true }, });
             if (data?.createPlaylist) {
-                setPlaylists((prev) => [ ...playlists, data.createPlaylist]);
+                setPlaylists((prev) => [ ...prev, data.createPlaylist]);
                 setNewPlaylist({ name: '', isPublic: true });
                 setIsAddingPlaylist(false);
             }

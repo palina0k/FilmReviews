@@ -1,3 +1,42 @@
+# A Look at the Pages and Features:
+
+### Home Page
+![Home](https://github.com/palina0k/FilmReviews/blob/public/index/home_page.png) 
+
+Shorcuts to different pages on the Home Page that are highlighted when mouse hovers over them:
+![Shortcut One](https://github.com/palina0k/FilmReviews/blob/public/index/shortcuts_homepage_hovered.png) 
+![Shortcut Two](https://github.com/palina0k/FilmReviews/blob/public/index/shortcuts_homepage_covered_two.png)
+
+Navigation Bar, with 'Home' hovered over:
+![Navbar](https://github.com/palina0k/FilmReviews/blob/public/index/navbar_homepage_hovered.png)
+
+### Search Landing Page
+![Search Landing](https://github.com/palina0k/FilmReviews/blob/public/index/search_landing.png) 
+
+Here is how searching  already existing movies and playlists looks like:
+![Results](https://github.com/palina0k/FilmReviews/blob/public/index/search_uploaded_content.png) 
+
+Here is one movie card opened:
+![Matrix Reloaded Movie Card](https://github.com/palina0k/FilmReviews/blob/public/index/opening_movie_card.png) 
+
+### Profile Landing Page
+![Create Account and Log In Window](https://github.com/palina0k/FilmReviews/blob/public/index/profile_landing.png) 
+
+Here is what the page looks like once a user either creates an account or logs in with an existing account:
+![User Profile](https://github.com/palina0k/FilmReviews/blob/public/index/profile_created_landing.png) 
+
+The popup for creating a playlist:
+![Creating a Playlist](https://github.com/palina0k/FilmReviews/blob/public/index/making_playlist_popup.png) 
+
+The look of an existing but empty playlist in a User's profile:
+![Existing Playlist](https://github.com/palina0k/FilmReviews/blob/public/index/viewing_existing_emptyplaylist.png) 
+
+The look of a populated existing playlist in a User's profile:
+![Populated Playlist](https://github.com/palina0k/FilmReviews/blob/public/index/viewing_existing_populated_playlist.png) 
+
+### About the Application
+![About](https://github.com/palina0k/FilmReviews/blob/public/index/about_landing.png) 
+
 # Some Notes Before You Begin
 Make sure you follow all of the steps in "Setting Up Your Development Environment" before attempting to even look at the code. 
 

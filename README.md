@@ -1,14 +1,14 @@
 # A Look at the Pages and Features:
 
 ### Home Page
-![Home](https://github.com/palina0k/FilmReviews/blob/public/index/home_page.png) 
+![Home](https://github.com/palina0k/FilmReviews/blob/main/public/index/home_page.png) 
 
 Shorcuts to different pages on the Home Page that are highlighted when mouse hovers over them:
 ![Shortcut One](https://github.com/palina0k/FilmReviews/blob/main/public/index/shortcuts_homepage_hovered.png) 
 ![Shortcut Two](https://github.com/palina0k/FilmReviews/blob/main/public/index/shortcuts_homepage_covered_two.png)
 
 Navigation Bar, with 'Home' hovered over:
-![Navbar](https://github.com/palina0k/FilmReviews/blob/main/public/index/navbar_homepage_hovered.png)
+![Navbar](https://github.com/palina0k/FilmReviews/blob/main/public/index/navbar_home_hovered.png)
 
 ### Search Landing Page
 ![Search Landing](https://github.com/palina0k/FilmReviews/blob/main/public/index/search_landing.png) 
@@ -23,7 +23,7 @@ Here is one movie card opened:
 ![Create Account and Log In Window](https://github.com/palina0k/FilmReviews/blob/main/public/index/profile_landing.png) 
 
 Here is what the page looks like once a user either creates an account or logs in with an existing account:
-![User Profile](https://github.com/palina0k/FilmReviews/blob/main/public/index/profile_created_landing.png) 
+![User Profile](https://github.com/palina0k/FilmReviews/blob/main/public/index/profile_created_loggedin.png) 
 
 The popup for creating a playlist:
 ![Creating a Playlist](https://github.com/palina0k/FilmReviews/blob/main/public/index/making_playlist_popup.png) 
